@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint --quiet --ext .ts --ignore-path .gitignore",
     "test": "c8 --all --reporter=lcov mocha test/*.test.ts",
-    "prepack": "tsc"
+    "prepack": "tsc",
+    "release": "changeset publish"
   },
   "keywords": [
     "clownface",
@@ -26,6 +27,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@babel/register": "^7.17.7",
+    "@changesets/cli": "^2.22.0",
     "@tpluscode/eslint-config": "^0.3.1",
     "@types/chai": "^4.3.1",
     "@types/mocha": "^9.1.0",
