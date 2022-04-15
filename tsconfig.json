@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "esModuleInterop": true,
     "strict": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "declaration": true
   }
 }
