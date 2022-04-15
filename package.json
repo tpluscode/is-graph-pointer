@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "lint": "eslint --quiet --ext .ts --ignore-path .gitignore",
     "test": "c8 --all --reporter=lcov mocha test/*.test.ts",
     "prepack": "tsc",
