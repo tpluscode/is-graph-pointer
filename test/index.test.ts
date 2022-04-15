@@ -1,8 +1,9 @@
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
-import clownface from 'clownface'
+import clownface, { MultiPointer } from 'clownface'
 import $rdf from 'rdf-ext'
 import * as isGraphPointer from '../'
+import { isLiteral } from '../'
 
 function cf() {
   return clownface({ dataset: $rdf.dataset() })
@@ -40,6 +41,21 @@ describe('is-graph-pointer', () => {
 
       // then
       expect(isGraphPointer.isLiteral(anyPointer)).to.be.true
+    })
+
+    it('filters multi pointer', () => {
+      // given
+      const anyPointer: MultiPointer = cf().node([
+        $rdf.namedNode('foo'),
+        $rdf.namedNode('bar'),
+        $rdf.literal('baz'),
+      ])
+
+      // when
+      const literal = anyPointer.filter(isLiteral)
+
+      // then
+      expect(literal.term).to.deep.eq($rdf.literal('baz'))
     })
   })
 
