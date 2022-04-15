@@ -2,15 +2,14 @@ import { expect } from 'chai'
 import { describe, it } from 'mocha'
 import clownface, { MultiPointer } from 'clownface'
 import $rdf from 'rdf-ext'
-import * as isGraphPointer from '../'
-import { isLiteral } from '../'
+import * as graphPointer from '../'
 
 function cf() {
   return clownface({ dataset: $rdf.dataset() })
 }
 
 describe('is-graph-pointer', () => {
-  Object.entries(isGraphPointer).forEach(([name, func]) => {
+  Object.entries(graphPointer).forEach(([name, func]) => {
     describe(name, () => {
       it('returns false when empty pointer', () => {
         // given
@@ -40,7 +39,7 @@ describe('is-graph-pointer', () => {
       const anyPointer = cf().literal('foo')
 
       // then
-      expect(isGraphPointer.isLiteral(anyPointer)).to.be.true
+      expect(graphPointer.isLiteral(anyPointer)).to.be.true
     })
 
     it('filters multi pointer', () => {
@@ -52,7 +51,7 @@ describe('is-graph-pointer', () => {
       ])
 
       // when
-      const literal = anyPointer.filter(isLiteral)
+      const literal = anyPointer.filter(graphPointer.isLiteral)
 
       // then
       expect(literal.term).to.deep.eq($rdf.literal('baz'))
@@ -65,7 +64,7 @@ describe('is-graph-pointer', () => {
       const anyPointer = cf().namedNode('foo')
 
       // then
-      expect(isGraphPointer.isNamedNode(anyPointer)).to.be.true
+      expect(graphPointer.isNamedNode(anyPointer)).to.be.true
     })
   })
 
@@ -75,7 +74,7 @@ describe('is-graph-pointer', () => {
       const anyPointer = cf().blankNode('foo')
 
       // then
-      expect(isGraphPointer.isBlankNode(anyPointer)).to.be.true
+      expect(graphPointer.isBlankNode(anyPointer)).to.be.true
     })
   })
 
@@ -85,7 +84,7 @@ describe('is-graph-pointer', () => {
       const anyPointer = cf().blankNode('foo')
 
       // then
-      expect(isGraphPointer.isResource(anyPointer)).to.be.true
+      expect(graphPointer.isResource(anyPointer)).to.be.true
     })
 
     it('returns true when pointer is named node', () => {
@@ -93,7 +92,7 @@ describe('is-graph-pointer', () => {
       const anyPointer = cf().namedNode('foo')
 
       // then
-      expect(isGraphPointer.isResource(anyPointer)).to.be.true
+      expect(graphPointer.isResource(anyPointer)).to.be.true
     })
   })
 })
