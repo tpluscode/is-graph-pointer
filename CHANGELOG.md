@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 1.1.0
+
+### Minor Changes
+
+- 43827a1: Functions would not handle `undefined` pointer
+
 ## 1.0.1
 
 ### Patch Changes
