@@ -30,6 +30,11 @@ describe('is-graph-pointer', () => {
         // then
         expect(func(anyPointer)).to.be.false
       })
+
+      it('returns false when undefined', () => {
+        // then
+        expect(func(undefined)).to.be.false
+      })
     })
   })
 
