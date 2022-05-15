@@ -38,6 +38,32 @@ describe('is-graph-pointer', () => {
     })
   })
 
+  describe('isGraphPointer', () => {
+    it('return true when it is', () => {
+      // given
+      const anyPointer = cf().literal('foo')
+
+      // then
+      expect(graphPointer.isGraphPointer(anyPointer)).to.be.true
+    })
+
+    it('return false when it is any pointer', () => {
+      // given
+      const anyPointer = cf()
+
+      // then
+      expect(graphPointer.isGraphPointer(anyPointer)).to.be.false
+    })
+
+    it('return false when it is multi pointer', () => {
+      // given
+      const anyPointer = cf().node(['a', 'b'])
+
+      // then
+      expect(graphPointer.isGraphPointer(anyPointer)).to.be.false
+    })
+  })
+
   describe('isLiteral', () => {
     it('returns true when pointer is literal node', () => {
       // given
