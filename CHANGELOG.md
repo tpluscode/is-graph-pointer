@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 1.2.0
+
+### Minor Changes
+
+- 0efaf74: Added `isGraphPointer` function
+
 ## 1.1.0
 
 ### Minor Changes
