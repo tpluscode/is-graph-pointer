@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 1.2.2
+
+### Patch Changes
+
+- beda645: When filtering an array of pointer, the term type would not be correctly inferred
+
 ## 1.2.1
 
 ### Patch Changes
