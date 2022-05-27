@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 1.2.1
+
+### Patch Changes
+
+- 15fdd45: The package would fail to import in webpack
+
 ## 1.2.0
 
 ### Minor Changes
