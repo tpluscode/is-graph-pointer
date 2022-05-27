@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { describe, it } from 'mocha'
 import clownface, { MultiPointer } from 'clownface'
 import $rdf from 'rdf-ext'
-import * as graphPointer from '../'
+import graphPointer from '../'
 
 function cf() {
   return clownface({ dataset: $rdf.dataset() })

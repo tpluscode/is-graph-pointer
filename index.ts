@@ -20,3 +20,11 @@ export function isBlankNode(arg: AnyPointer | undefined): arg is GraphPointer<Bl
 export function isLiteral(arg: AnyPointer | undefined): arg is GraphPointer<Literal> {
   return arg?.term?.termType === 'Literal'
 }
+
+export default {
+  isGraphPointer,
+  isResource,
+  isNamedNode,
+  isBlankNode,
+  isLiteral,
+}
