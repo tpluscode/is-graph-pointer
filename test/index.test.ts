@@ -1,7 +1,9 @@
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
-import clownface, { MultiPointer } from 'clownface'
+import clownface, { GraphPointer, MultiPointer } from 'clownface'
 import $rdf from 'rdf-ext'
+import type * as RDF from '@rdfjs/types'
+import { rdf } from '@tpluscode/rdf-ns-builders'
 import graphPointer from '../'
 
 function cf() {
@@ -87,6 +89,17 @@ describe('is-graph-pointer', () => {
       // then
       expect(literal.term).to.deep.eq($rdf.literal('baz'))
     })
+
+    it('separates union term types when filtering', () => {
+      // given
+      const literal: RDF.Literal = $rdf.literal('foo')
+      const blankNode: RDF.BlankNode = $rdf.blankNode()
+      const pointers = cf().node([literal, blankNode]).toArray()
+
+      // then
+      // eslint-disable-next-line no-unused-vars
+      const filtered: GraphPointer<RDF.Literal> | undefined = pointers.filter(graphPointer.isLiteral).shift()
+    })
   })
 
   describe('isNamedNode', () => {
@@ -97,6 +110,15 @@ describe('is-graph-pointer', () => {
       // then
       expect(graphPointer.isNamedNode(anyPointer)).to.be.true
     })
+
+    it('separates union term types when filtering', () => {
+      // given
+      const pointers = cf().has(rdf.type).toArray()
+
+      // then
+      // eslint-disable-next-line no-unused-vars
+      const blank: GraphPointer<RDF.NamedNode> | undefined = pointers.filter(graphPointer.isNamedNode).shift()
+    })
   })
 
   describe('isBlankNode', () => {
@@ -106,6 +128,15 @@ describe('is-graph-pointer', () => {
 
       // then
       expect(graphPointer.isBlankNode(anyPointer)).to.be.true
+    })
+
+    it('separates union term types when filtering', () => {
+      // given
+      const pointers = cf().has(rdf.type).toArray()
+
+      // then
+      // eslint-disable-next-line no-unused-vars
+      const named: GraphPointer<RDF.BlankNode> | undefined = pointers.filter(graphPointer.isBlankNode).shift()
     })
   })
 

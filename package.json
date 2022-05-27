@@ -30,6 +30,7 @@
     "@babel/register": "^7.17.7",
     "@changesets/cli": "^2.22.0",
     "@tpluscode/eslint-config": "^0.3.1",
+    "@tpluscode/rdf-ns-builders": "^1",
     "@types/chai": "^4.3.1",
     "@types/mocha": "^9.1.0",
     "@types/rdf-ext": "^1",
