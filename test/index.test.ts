@@ -3,7 +3,7 @@ import { describe, it } from 'mocha'
 import clownface, { GraphPointer, MultiPointer } from 'clownface'
 import $rdf from 'rdf-ext'
 import type * as RDF from '@rdfjs/types'
-import { rdf } from '@tpluscode/rdf-ns-builders'
+import { rdf, xsd } from '@tpluscode/rdf-ns-builders'
 import graphPointer from '../'
 
 function cf() {
@@ -73,6 +73,38 @@ describe('is-graph-pointer', () => {
 
       // then
       expect(graphPointer.isLiteral(anyPointer)).to.be.true
+    })
+
+    it('returns false when pointer is literal node but datatype are not equal', () => {
+      // given
+      const anyPointer = cf().literal('foo')
+
+      // then
+      expect(graphPointer.isLiteral(anyPointer, xsd.integer)).to.be.false
+    })
+
+    it('returns true when pointer is literal node and datatypes are equal', () => {
+      // given
+      const anyPointer = cf().literal('foo', xsd.anyURI)
+
+      // then
+      expect(graphPointer.isLiteral(anyPointer, xsd.anyURI)).to.be.true
+    })
+
+    it('returns true when pointer is literal node and languages are equal', () => {
+      // given
+      const anyPointer = cf().literal('foo', 'de')
+
+      // then
+      expect(graphPointer.isLiteral(anyPointer, 'de')).to.be.true
+    })
+
+    it('false true when pointer is literal node and languages are equal', () => {
+      // given
+      const anyPointer = cf().literal('foo', 'de')
+
+      // then
+      expect(graphPointer.isLiteral(anyPointer, 'en')).to.be.false
     })
 
     it('filters multi pointer', () => {
