@@ -54,6 +54,10 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tpluscode/is-graph-pointer"
+  },
   "mocha": {
     "loader": "ts-node/esm"
   },
