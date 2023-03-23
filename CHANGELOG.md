@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 2.0.0
+
+### Major Changes
+
+- dbb7ee8: The package is now ESM-only
+
 ## 1.3.0
 
 ### Minor Changes
