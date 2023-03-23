@@ -17,8 +17,16 @@ export function isBlankNode<D extends DatasetCore>(arg: AnyPointer<AnyContext, D
   return arg?.term?.termType === 'BlankNode'
 }
 
-export function isLiteral<D extends DatasetCore>(arg: AnyPointer<AnyContext, D> | undefined): arg is GraphPointer<Literal, D> {
-  return arg?.term?.termType === 'Literal'
+export function isLiteral<D extends DatasetCore>(arg: AnyPointer<AnyContext, D> | undefined, dtOrLang?: NamedNode | string | number): arg is GraphPointer<Literal, D> {
+  const itIsLiteral = arg?.term?.termType === 'Literal'
+  if (itIsLiteral && typeof dtOrLang === 'string') {
+    return arg?.term.language === dtOrLang
+  }
+  if (itIsLiteral && typeof dtOrLang === 'object') {
+    return arg?.term.datatype.equals(dtOrLang)
+  }
+
+  return itIsLiteral
 }
 
 export default {

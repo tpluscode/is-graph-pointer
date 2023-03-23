@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 1.3.0
+
+### Minor Changes
+
+- 8845494: Add second argument to `isLiteral` to allow matching datatype and language (exact)
+
 ## 1.2.2
 
 ### Patch Changes
