@@ -4,7 +4,7 @@ import clownface, { GraphPointer, MultiPointer } from 'clownface'
 import $rdf from 'rdf-ext'
 import type * as RDF from '@rdfjs/types'
 import { rdf } from '@tpluscode/rdf-ns-builders'
-import graphPointer from '../'
+import graphPointer from '../index.js'
 
 function cf() {
   return clownface({ dataset: $rdf.dataset() })
