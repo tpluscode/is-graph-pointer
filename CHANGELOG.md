@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 2.1.0
+
+### Minor Changes
+
+- c8e6054: Update clownface to v2
+
 ## 2.0.0
 
 ### Major Changes
