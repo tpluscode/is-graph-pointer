@@ -1,5 +1,11 @@
 # is-graph-pointer
 
+## 2.2.0
+
+### Minor Changes
+
+- 347383c: Allow any object as argument
+
 ## 2.1.0
 
 ### Minor Changes
