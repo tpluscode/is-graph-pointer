@@ -64,6 +64,18 @@ describe('is-graph-pointer', () => {
       // then
       expect(graphPointer.isGraphPointer(anyPointer)).to.be.false
     })
+
+    it('return false when it is a non-object', () => {
+      expect(graphPointer.isGraphPointer(5)).to.be.false
+    })
+
+    it('return false when it is null', () => {
+      expect(graphPointer.isGraphPointer(null)).to.be.false
+    })
+
+    it('return false when it is plain object', () => {
+      expect(graphPointer.isGraphPointer({})).to.be.false
+    })
   })
 
   describe('isLiteral', () => {
