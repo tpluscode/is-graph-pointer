@@ -2,7 +2,7 @@ import type { AnyContext, AnyPointer, GraphPointer } from 'clownface'
 import type { BlankNode, NamedNode, Literal, DatasetCore } from '@rdfjs/types'
 
 export function isGraphPointer(arg: AnyPointer | null | undefined | unknown): arg is GraphPointer {
-  return typeof arg === 'object' && !!arg && 'term' in arg
+  return typeof arg === 'object' && !!arg && 'term' in arg && !!arg.term
 }
 
 export function isResource<D extends DatasetCore>(arg: AnyPointer<AnyContext, D> | null | undefined): arg is GraphPointer<BlankNode | NamedNode, D> {
