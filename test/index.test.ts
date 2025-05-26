@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
-import clownface, { GraphPointer, MultiPointer } from 'clownface'
+import type { GraphPointer, MultiPointer } from 'clownface'
+import clownface from 'clownface'
 import $rdf from '@zazuko/env'
 import type * as RDF from '@rdfjs/types'
 import { rdf, xsd } from '@tpluscode/rdf-ns-builders'
